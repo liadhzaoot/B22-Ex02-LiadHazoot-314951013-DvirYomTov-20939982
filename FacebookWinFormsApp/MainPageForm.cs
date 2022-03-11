@@ -197,7 +197,7 @@ namespace BasicFacebookFeatures
         {
             dataAnalystRichBox.Clear();
             dataAnalystRichBox.Visible = false;
-
+            
             dataSelectedPictureBox.Image = null;
             dataSelectedPictureBox.Visible = false;
         }

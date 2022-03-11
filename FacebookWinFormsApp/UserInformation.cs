@@ -23,18 +23,7 @@ namespace BasicFacebookFeatures
         internal UserInformation(User i_User)
         {
             InitializeComponent();
-            initPictureBoxes();
             r_User = i_User;
-        }
-
-        private void initPictureBoxes()
-        {
-            m_PictureBoxes = new List<PictureBox>();
-            m_PictureBoxes.Add(pictureBox1);
-            m_PictureBoxes.Add(pictureBox2);
-            m_PictureBoxes.Add(pictureBox3);
-            m_PictureBoxes.Add(pictureBox4);
-            hidePhotos();
         }
 
         internal void fetchOnLoad()
@@ -49,18 +38,48 @@ namespace BasicFacebookFeatures
             birthdayLabel.Text = r_User.Birthday;
             emailLabel.Text = r_User.Email;
             profilePictureBox.LoadAsync(r_User.PictureLargeURL);
-            try
+        }
+
+        private void showAlbums()
+        {
+            for (int i = 0; i < r_User.Albums.Count; i++)
             {
-                if (r_User.Cover != null)
+                PostUC postUC = new PostUC();
+                if (r_User.Albums[i].Name != null)
                 {
-                    coverPictureBox.LoadAsync(r_User.Cover.SourceURL);
+                    postUC.SetLableText(r_User.Albums[i].Name);
                 }
+                if (r_User.Albums[i].PictureAlbumURL != null)
+                {
+                    postUC.SetImage(r_User.Albums[i].PictureAlbumURL);
+                }
+
+                this.flowLayoutPanel1.Controls.Add(postUC);
             }
-            catch (Exception ex)
+
+            this.flowLayoutPanel1.AutoScroll = true;
+        }
+        private void createFeed()
+        {
+            for (int i = 0; i < r_User.Posts.Count; i++)
             {
-                MessageBox.Show("Could not get cover photo.");
-                throw ex;
+                PostUC postUC = new PostUC();
+                //postUC.SetLableVisibility(false);
+                if (r_User.Posts[i].Message != null)
+                {
+                    //postUC.SetLableVisibility(true);
+                    postUC.SetLableText(r_User.Posts[i].Message);
+                }
+
+                if (r_User.Posts[i].PictureURL != null)
+                {
+                    postUC.SetImage(r_User.Posts[i].PictureURL);
+                }
+                this.flowLayoutPanel1.Controls.Add(postUC);
+
             }
+
+            this.flowLayoutPanel1.AutoScroll = true;
         }
 
         private void fetchPhotos()
@@ -80,20 +99,29 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void hidePhotos()
-        {
-            foreach (PictureBox pictureBox in m_PictureBoxes)
-            {
-                pictureBox.Visible = false;
-            }
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             if (BackButtonClicked != null)
             {
                 BackButtonClicked.Invoke();
             }
+        }
+
+        private void showFeedBtn_Click(object sender, EventArgs e)
+        {
+            this.flowLayoutPanel1.Controls.Clear();
+            createFeed();
+        }
+
+        private void ShowAlbumsBtn_Click(object sender, EventArgs e)
+        {
+            this.flowLayoutPanel1.Controls.Clear();
+            showAlbums();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPageForm));
             this.profilePictureBox = new System.Windows.Forms.PictureBox();
             this.ChooseDataTypeLabel = new System.Windows.Forms.Label();
             this.comboBoxDecisionData = new System.Windows.Forms.ListBox();
@@ -57,7 +56,7 @@
             this.profilePictureBox.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.profilePictureBox.BackColor = System.Drawing.Color.Transparent;
             this.profilePictureBox.Location = new System.Drawing.Point(31, 27);
-            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profilePictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.profilePictureBox.Name = "profilePictureBox";
             this.profilePictureBox.Size = new System.Drawing.Size(173, 145);
             this.profilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -84,7 +83,7 @@
             this.comboBoxDecisionData.FormattingEnabled = true;
             this.comboBoxDecisionData.ItemHeight = 20;
             this.comboBoxDecisionData.Location = new System.Drawing.Point(89, 383);
-            this.comboBoxDecisionData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDecisionData.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDecisionData.Name = "comboBoxDecisionData";
             this.comboBoxDecisionData.Size = new System.Drawing.Size(224, 324);
             this.comboBoxDecisionData.TabIndex = 19;
@@ -107,7 +106,7 @@
             // 
             this.postButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.postButton.Location = new System.Drawing.Point(1028, 188);
-            this.postButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.postButton.Margin = new System.Windows.Forms.Padding(4);
             this.postButton.Name = "postButton";
             this.postButton.Size = new System.Drawing.Size(129, 39);
             this.postButton.TabIndex = 17;
@@ -118,7 +117,7 @@
             // postTextBox
             // 
             this.postTextBox.Location = new System.Drawing.Point(300, 198);
-            this.postTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.postTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.postTextBox.Name = "postTextBox";
             this.postTextBox.Size = new System.Drawing.Size(719, 22);
             this.postTextBox.TabIndex = 22;
@@ -152,7 +151,7 @@
             this.dataAnalystRichBox.BackColor = System.Drawing.Color.DarkSalmon;
             this.dataAnalystRichBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataAnalystRichBox.Location = new System.Drawing.Point(359, 383);
-            this.dataAnalystRichBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataAnalystRichBox.Margin = new System.Windows.Forms.Padding(4);
             this.dataAnalystRichBox.Name = "dataAnalystRichBox";
             this.dataAnalystRichBox.ReadOnly = true;
             this.dataAnalystRichBox.Size = new System.Drawing.Size(403, 340);
@@ -167,7 +166,7 @@
             this.showPostsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPostsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.showPostsButton.Location = new System.Drawing.Point(31, 277);
-            this.showPostsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showPostsButton.Margin = new System.Windows.Forms.Padding(4);
             this.showPostsButton.Name = "showPostsButton";
             this.showPostsButton.Size = new System.Drawing.Size(279, 53);
             this.showPostsButton.TabIndex = 25;
@@ -180,7 +179,7 @@
             this.showEventsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.showEventsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showEventsButton.Location = new System.Drawing.Point(584, 277);
-            this.showEventsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showEventsButton.Margin = new System.Windows.Forms.Padding(4);
             this.showEventsButton.Name = "showEventsButton";
             this.showEventsButton.Size = new System.Drawing.Size(279, 53);
             this.showEventsButton.TabIndex = 26;
@@ -192,7 +191,7 @@
             // 
             this.dataSelectedPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.dataSelectedPictureBox.Location = new System.Drawing.Point(771, 383);
-            this.dataSelectedPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataSelectedPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.dataSelectedPictureBox.Name = "dataSelectedPictureBox";
             this.dataSelectedPictureBox.Size = new System.Drawing.Size(308, 246);
             this.dataSelectedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,7 +230,7 @@
             this.showFriendsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.showFriendsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showFriendsButton.Location = new System.Drawing.Point(307, 277);
-            this.showFriendsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showFriendsButton.Margin = new System.Windows.Forms.Padding(4);
             this.showFriendsButton.Name = "showFriendsButton";
             this.showFriendsButton.Size = new System.Drawing.Size(279, 53);
             this.showFriendsButton.TabIndex = 30;
@@ -258,7 +257,7 @@
             this.GetMatchesButton.BackColor = System.Drawing.Color.Purple;
             this.GetMatchesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GetMatchesButton.Location = new System.Drawing.Point(860, 277);
-            this.GetMatchesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GetMatchesButton.Margin = new System.Windows.Forms.Padding(4);
             this.GetMatchesButton.Name = "GetMatchesButton";
             this.GetMatchesButton.Size = new System.Drawing.Size(279, 53);
             this.GetMatchesButton.TabIndex = 33;
@@ -296,7 +295,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1179, 814);
             this.Controls.Add(this.logoutButton);
@@ -320,7 +318,7 @@
             this.Controls.Add(this.profilePictureBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainPageForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
