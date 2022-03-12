@@ -87,7 +87,7 @@ namespace Login
             switch (month)
             {
                 case 1:
-                    Sign = day >= 20 ? eZodiacSign.Aquarius : eZodiacSign.Capricorn;
+                    Sign = day >= 21 ? eZodiacSign.Aquarius : eZodiacSign.Capricorn;
                     break;
                 case 2:
                     Sign = day >= 19 ? eZodiacSign.Pisces : eZodiacSign.Capricorn;
