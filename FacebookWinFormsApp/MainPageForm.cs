@@ -128,7 +128,6 @@ namespace BasicFacebookFeatures
             catch (Exception ex)
             {
                 MessageBox.Show("Could not post.");
-                throw ex;
             }
         }
 
