@@ -32,8 +32,6 @@
             this.AndYouMachBestLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.userSignNameLabel = new System.Windows.Forms.Label();
-            this.matchSignNameLabel = new System.Windows.Forms.Label();
             this.fateQuotePicture = new System.Windows.Forms.PictureBox();
             this.findButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
@@ -88,33 +86,11 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
-            // userSignNameLabel
-            // 
-            this.userSignNameLabel.AutoSize = true;
-            this.userSignNameLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.userSignNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.userSignNameLabel.Location = new System.Drawing.Point(180, 386);
-            this.userSignNameLabel.Name = "userSignNameLabel";
-            this.userSignNameLabel.Size = new System.Drawing.Size(119, 29);
-            this.userSignNameLabel.TabIndex = 4;
-            this.userSignNameLabel.Text = "User Sign";
-            // 
-            // matchSignNameLabel
-            // 
-            this.matchSignNameLabel.AutoSize = true;
-            this.matchSignNameLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.matchSignNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.matchSignNameLabel.Location = new System.Drawing.Point(672, 386);
-            this.matchSignNameLabel.Name = "matchSignNameLabel";
-            this.matchSignNameLabel.Size = new System.Drawing.Size(132, 29);
-            this.matchSignNameLabel.TabIndex = 5;
-            this.matchSignNameLabel.Text = "Match Sign";
-            this.matchSignNameLabel.Visible = false;
-            // 
             // fateQuotePicture
             // 
             this.fateQuotePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fateQuotePicture.ImageLocation = "https://i.pinimg.com/originals/b3/c4/c3/b3c4c3432cbb3735315a329352afe63a.jpg";
+            this.fateQuotePicture.ImageLocation = "https://hips.hearstapps.com/sev.h-cdn.co/assets/16/17/768x384/landscape-146195780" +
+    "8-best-love-match.jpg?resize=2048:*";
             this.fateQuotePicture.Location = new System.Drawing.Point(112, 452);
             this.fateQuotePicture.Margin = new System.Windows.Forms.Padding(4);
             this.fateQuotePicture.Name = "fateQuotePicture";
@@ -172,8 +148,6 @@
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.findButton);
             this.Controls.Add(this.fateQuotePicture);
-            this.Controls.Add(this.matchSignNameLabel);
-            this.Controls.Add(this.userSignNameLabel);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.AndYouMachBestLabel);
@@ -201,8 +175,6 @@
         private System.Windows.Forms.Label AndYouMachBestLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label userSignNameLabel;
-        private System.Windows.Forms.Label matchSignNameLabel;
         private System.Windows.Forms.PictureBox fateQuotePicture;
         private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.Button goBackButton;
