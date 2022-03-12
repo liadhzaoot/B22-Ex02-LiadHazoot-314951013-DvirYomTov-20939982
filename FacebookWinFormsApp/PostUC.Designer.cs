@@ -43,6 +43,7 @@
             // 
             // postPB
             // 
+            this.postPB.BackColor = System.Drawing.Color.LightCyan;
             this.postPB.Location = new System.Drawing.Point(148, 31);
             this.postPB.Margin = new System.Windows.Forms.Padding(4);
             this.postPB.Name = "postPB";
@@ -58,7 +59,7 @@
             this.postLable.Location = new System.Drawing.Point(270, 195);
             this.postLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.postLable.Name = "postLable";
-            this.postLable.Size = new System.Drawing.Size(44, 16);
+            this.postLable.Size = new System.Drawing.Size(33, 16);
             this.postLable.TabIndex = 5;
             this.postLable.Text = "Text";
             this.postLable.Click += new System.EventHandler(this.postLable_Click);

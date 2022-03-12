@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.Login = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Login
@@ -41,13 +43,23 @@
             this.Login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Login.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login.Location = new System.Drawing.Point(387, 415);
+            this.Login.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Login.Location = new System.Drawing.Point(365, 583);
             this.Login.Margin = new System.Windows.Forms.Padding(0);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(408, 64);
             this.Login.TabIndex = 0;
+            this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = false;
             this.Login.Click += new System.EventHandler(this.loginAndInit);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(297, 275);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(572, 279);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
@@ -55,6 +67,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 804);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Login);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
@@ -64,6 +77,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,5 +86,6 @@
         #endregion
 
         private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

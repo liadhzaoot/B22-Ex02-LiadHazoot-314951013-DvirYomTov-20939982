@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="AvailableFriends.cs" />
-    <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZodiacSignMatch.cs" />

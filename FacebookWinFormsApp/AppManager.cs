@@ -53,12 +53,6 @@ namespace BasicFacebookFeatures
             FacebookService.s_FbApiVersion = 2.8f;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.ThreadException += new ThreadExceptionEventHandler(MyCommonExceptionHandlingMethod);
-        }
-
-        private static void MyCommonExceptionHandlingMethod(object sender, ThreadExceptionEventArgs i_ThreadException)
-        {
-            Logger.WriteException(i_ThreadException.Exception.Message);
         }
 
         public void Run()

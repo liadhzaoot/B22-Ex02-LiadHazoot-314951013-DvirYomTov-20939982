@@ -14,7 +14,6 @@ namespace BasicFacebookFeatures
     internal partial class UserInformation : Form
     {
         private readonly User r_User;
-        private List<PictureBox> m_PictureBoxes;
         private readonly int r_MaximumNumberOfPostsToShow = 15;
 
         internal delegate void BackButtonEventHandler();
@@ -30,7 +29,6 @@ namespace BasicFacebookFeatures
         internal void fetchOnLoad()
         {
             fetchUserInfo();
-            fetchPhotos();
         }
 
         private void fetchUserInfo()
@@ -99,17 +97,21 @@ namespace BasicFacebookFeatures
         private void fetchPhotos()
         {
             IEnumerator<Photo> photosEnumerator = r_User.PhotosTaggedIn.GetEnumerator();
-            foreach (PictureBox pictureBox in m_PictureBoxes)
+            for (int i = 0; i < r_MaximumNumberOfPostsToShow; i++)
             {
+                PostUC postUC = new PostUC();
+
                 if (photosEnumerator.MoveNext())
                 {
-                    pictureBox.LoadAsync(photosEnumerator.Current.PictureNormalURL);
-                    pictureBox.Visible = true;
+                    postUC.SetImage(photosEnumerator.Current.PictureNormalURL);
                 }
                 else
                 {
                     break;
                 }
+                this.flowLayoutPanel1.Controls.Add(postUC);
+                this.flowLayoutPanel1.AutoScroll = true;
+
             }
         }
 
@@ -136,6 +138,12 @@ namespace BasicFacebookFeatures
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void taggedPhotos_Click(object sender, EventArgs e)
+        {
+            this.flowLayoutPanel1.Controls.Clear();
+            fetchPhotos();
         }
     }
 }

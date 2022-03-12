@@ -36,6 +36,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.showFeedBtn = new System.Windows.Forms.Button();
             this.ShowAlbumsBtn = new System.Windows.Forms.Button();
+            this.taggedPhotos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,12 +125,24 @@
             this.ShowAlbumsBtn.UseVisualStyleBackColor = false;
             this.ShowAlbumsBtn.Click += new System.EventHandler(this.ShowAlbumsBtn_Click);
             // 
+            // taggedPhotos
+            // 
+            this.taggedPhotos.BackColor = System.Drawing.Color.LightCyan;
+            this.taggedPhotos.Location = new System.Drawing.Point(597, 93);
+            this.taggedPhotos.Name = "taggedPhotos";
+            this.taggedPhotos.Size = new System.Drawing.Size(142, 41);
+            this.taggedPhotos.TabIndex = 13;
+            this.taggedPhotos.Text = "Tagged Photos";
+            this.taggedPhotos.UseVisualStyleBackColor = false;
+            this.taggedPhotos.Click += new System.EventHandler(this.taggedPhotos_Click);
+            // 
             // UserInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1176, 804);
+            this.Controls.Add(this.taggedPhotos);
             this.Controls.Add(this.ShowAlbumsBtn);
             this.Controls.Add(this.showFeedBtn);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -161,5 +174,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button showFeedBtn;
         private System.Windows.Forms.Button ShowAlbumsBtn;
+        private System.Windows.Forms.Button taggedPhotos;
     }
 }

@@ -78,16 +78,25 @@ namespace BasicFacebookFeatures
 
         private static void analyzePost(Post i_Post, out string o_Data, out string o_PicUrl)
         {
-            StringBuilder postInfo = new StringBuilder();
-            postInfo.AppendLine(string.Format(
-                "Post: {0}.{1} Has {2} comments.{1} Was posted on {3}.",
-                i_Post.Message,
-                Environment.NewLine,
-                i_Post.Comments.Count,
-                i_Post.CreatedTime));
+            o_Data = null;
+            o_PicUrl = null;
+            try
+            {
+                StringBuilder postInfo = new StringBuilder();
+                postInfo.AppendLine(string.Format(
+                    "Post: {0}.{1} Has {2} comments.{1} Was posted on {3}.",
+                    i_Post.Message,
+                    Environment.NewLine,
+                    i_Post.Comments.Count,
+                    i_Post.CreatedTime));
 
-            o_Data = postInfo.ToString();
-            o_PicUrl = i_Post.PictureURL;
+                o_Data = postInfo.ToString();
+                o_PicUrl = i_Post.PictureURL;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
