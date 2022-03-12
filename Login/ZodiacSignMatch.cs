@@ -26,6 +26,21 @@ namespace Login
             }
         }
 
+        public enum eMonth
+        {
+            January = 1,
+            February,
+            March,
+            April,
+            May,
+            June,
+            July,
+            August,
+            September,
+            October,
+            November,
+            December
+        }
         public enum eZodiacSign
         {
             Aquarius = 0,
@@ -63,63 +78,62 @@ namespace Login
         {
             sr_ImagesUrl = new Dictionary<eZodiacSign, string>();
 
-            sr_ImagesUrl[eZodiacSign.Aquarius] = "https://www.astrology-zodiac-signs.com/images/aquarius.jpg";
-            sr_ImagesUrl[eZodiacSign.Pisces] = "https://www.astrology-zodiac-signs.com/images/pisces.jpg";
-            sr_ImagesUrl[eZodiacSign.Aries] = "https://www.astrology-zodiac-signs.com/images/aries.jpg";
-            sr_ImagesUrl[eZodiacSign.Taurus] = "https://www.astrology-zodiac-signs.com/images/taurus.jpg";
-            sr_ImagesUrl[eZodiacSign.Gemini] = "https://www.astrology-zodiac-signs.com/images/gemini.jpg";
-            sr_ImagesUrl[eZodiacSign.Cancer] = "https://www.astrology-zodiac-signs.com/images/cancer.jpg";
-            sr_ImagesUrl[eZodiacSign.Leo] = "https://www.astrology-zodiac-signs.com/images/leo.jpg";
-            sr_ImagesUrl[eZodiacSign.Virgo] = "https://www.astrology-zodiac-signs.com/images/virgo.jpg";
-            sr_ImagesUrl[eZodiacSign.Libra] = "https://www.astrology-zodiac-signs.com/images/libra.jpg";
-            sr_ImagesUrl[eZodiacSign.Scorpio] = "https://www.astrology-zodiac-signs.com/images/scorpio.jpg";
-            sr_ImagesUrl[eZodiacSign.Sagittarius] = "https://www.astrology-zodiac-signs.com/images/sagittarius.jpg";
-            sr_ImagesUrl[eZodiacSign.Capricorn] = "https://www.astrology-zodiac-signs.com/images/capricorn.jpg";
+            sr_ImagesUrl[eZodiacSign.Aquarius] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/4b74ed238220/sub-buzz-7902-1598941285-9.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Pisces] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/00741fdf07c6/sub-buzz-8044-1598942757-6.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Aries] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/e8c474b0cad9/sub-buzz-7999-1598940815-2.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Taurus] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/00741fdf07c6/sub-buzz-8026-1598942395-15.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Gemini] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/4e214feff5ce/sub-buzz-7995-1598941278-3.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Cancer] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/e8c474b0cad9/sub-buzz-8048-1598942676-3.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Leo] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/e8c474b0cad9/sub-buzz-8004-1598940877-15.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Virgo] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/4b74ed238220/sub-buzz-7938-1598942442-1.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Libra] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/5811cc3bf67c/sub-buzz-7889-1598941236-3.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Scorpio] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/9803fc6962aa/sub-buzz-7942-1598942700-14.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Sagittarius] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/0b98b98804e1/sub-buzz-7991-1598941060-27.png?output-format=auto&output-quality=auto";
+            sr_ImagesUrl[eZodiacSign.Capricorn] = "https://img.buzzfeed.com/buzzfeed-static/static/2020-09/1/6/asset/0b98b98804e1/sub-buzz-8039-1598942478-14.png?output-format=auto&output-quality=auto";
         }
 
-        // $G$ CSS-999 (-5) you should have used enum here
         private void initUserZodiacSign(string i_Birthday)
         {
             string[] dateFormat = i_Birthday.Split('/');
-            int month = int.Parse(dateFormat[0]);
+            eMonth month = (eMonth)(int.Parse(dateFormat[0]));
             int day = int.Parse(dateFormat[1]);
 
             switch (month)
             {
-                case 1:
+                case eMonth.January:
                     Sign = day >= 21 ? eZodiacSign.Aquarius : eZodiacSign.Capricorn;
                     break;
-                case 2:
+                case eMonth.February:
                     Sign = day >= 19 ? eZodiacSign.Pisces : eZodiacSign.Capricorn;
                     break;
-                case 3:
+                case eMonth.March:
                     Sign = day >= 21 ? eZodiacSign.Aries : eZodiacSign.Pisces;
                     break;
-                case 4:
+                case eMonth.April:
                     Sign = day >= 20 ? eZodiacSign.Taurus : eZodiacSign.Aries;
                     break;
-                case 5:
+                case eMonth.May:
                     Sign = day >= 21 ? eZodiacSign.Gemini : eZodiacSign.Taurus;
                     break;
-                case 6:
+                case eMonth.June:
                     Sign = day >= 21 ? eZodiacSign.Cancer : eZodiacSign.Gemini;
                     break;
-                case 7:
+                case eMonth.July:
                     Sign = day >= 23 ? eZodiacSign.Leo : eZodiacSign.Cancer;
                     break;
-                case 8:
+                case eMonth.August:
                     Sign = day >= 23 ? eZodiacSign.Virgo : eZodiacSign.Leo;
                     break;
-                case 9:
+                case eMonth.September:
                     Sign = day >= 23 ? eZodiacSign.Libra : eZodiacSign.Virgo;
                     break;
-                case 10:
+                case eMonth.October:
                     Sign = day >= 23 ? eZodiacSign.Scorpio : eZodiacSign.Libra;
                     break;
-                case 11:
+                case eMonth.November:
                     Sign = day >= 22 ? eZodiacSign.Sagittarius : eZodiacSign.Scorpio;
                     break;
-                case 12:
+                case eMonth.December:
                     Sign = day >= 22 ? eZodiacSign.Capricorn : eZodiacSign.Sagittarius;
                     break;
             }
