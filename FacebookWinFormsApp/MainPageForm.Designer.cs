@@ -161,7 +161,7 @@
             // 
             // showPostsButton
             // 
-            this.showPostsButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.showPostsButton.BackColor = System.Drawing.Color.DarkCyan;
             this.showPostsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.showPostsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showPostsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -176,7 +176,7 @@
             // 
             // showEventsButton
             // 
-            this.showEventsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.showEventsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.showEventsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showEventsButton.Location = new System.Drawing.Point(584, 277);
             this.showEventsButton.Margin = new System.Windows.Forms.Padding(4);
@@ -227,7 +227,7 @@
             // 
             // showFriendsButton
             // 
-            this.showFriendsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.showFriendsButton.BackColor = System.Drawing.Color.Tan;
             this.showFriendsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showFriendsButton.Location = new System.Drawing.Point(307, 277);
             this.showFriendsButton.Margin = new System.Windows.Forms.Padding(4);
@@ -243,6 +243,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.LinkColor = System.Drawing.Color.DodgerBlue;
             this.linkLabel2.Location = new System.Drawing.Point(231, 118);
             this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel2.Name = "linkLabel2";
@@ -254,7 +255,7 @@
             // 
             // GetMatchesButton
             // 
-            this.GetMatchesButton.BackColor = System.Drawing.Color.Purple;
+            this.GetMatchesButton.BackColor = System.Drawing.Color.Khaki;
             this.GetMatchesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GetMatchesButton.Location = new System.Drawing.Point(860, 277);
             this.GetMatchesButton.Margin = new System.Windows.Forms.Padding(4);
@@ -270,7 +271,7 @@
             this.ZodiakSignLink.AutoSize = true;
             this.ZodiakSignLink.BackColor = System.Drawing.Color.Transparent;
             this.ZodiakSignLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.ZodiakSignLink.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.ZodiakSignLink.LinkColor = System.Drawing.Color.Fuchsia;
             this.ZodiakSignLink.Location = new System.Drawing.Point(229, 148);
             this.ZodiakSignLink.Name = "ZodiakSignLink";
             this.ZodiakSignLink.Size = new System.Drawing.Size(141, 29);
@@ -282,7 +283,7 @@
             // logoutButton
             // 
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.logoutButton.Location = new System.Drawing.Point(1036, 27);
+            this.logoutButton.Location = new System.Drawing.Point(30, 765);
             this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(108, 38);
