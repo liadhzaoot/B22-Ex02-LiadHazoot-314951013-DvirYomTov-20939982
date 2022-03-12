@@ -38,7 +38,7 @@ namespace BasicFacebookFeatures
                     "user_photos",
                     "user_posts",
                     "user_videos"
-                );
+            );
 
             if (string.IsNullOrEmpty(LogInInfo.AccessToken) == true)
             {

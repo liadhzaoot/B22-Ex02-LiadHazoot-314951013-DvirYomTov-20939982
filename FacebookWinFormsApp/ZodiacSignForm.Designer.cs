@@ -116,7 +116,7 @@
             this.fateQuotePicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fateQuotePicture.ImageLocation = "https://i.pinimg.com/originals/b3/c4/c3/b3c4c3432cbb3735315a329352afe63a.jpg";
             this.fateQuotePicture.Location = new System.Drawing.Point(112, 452);
-            this.fateQuotePicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fateQuotePicture.Margin = new System.Windows.Forms.Padding(4);
             this.fateQuotePicture.Name = "fateQuotePicture";
             this.fateQuotePicture.Size = new System.Drawing.Size(944, 289);
             this.fateQuotePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -128,7 +128,7 @@
             // 
             this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.findButton.Location = new System.Drawing.Point(507, 240);
-            this.findButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.findButton.Margin = new System.Windows.Forms.Padding(4);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(139, 55);
             this.findButton.TabIndex = 7;
@@ -140,7 +140,7 @@
             // 
             this.goBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goBackButton.Location = new System.Drawing.Point(17, 16);
-            this.goBackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.goBackButton.Margin = new System.Windows.Forms.Padding(4);
             this.goBackButton.Name = "goBackButton";
             this.goBackButton.Size = new System.Drawing.Size(100, 28);
             this.goBackButton.TabIndex = 8;
@@ -153,7 +153,7 @@
             this.shareButton.BackColor = System.Drawing.Color.Gold;
             this.shareButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shareButton.Location = new System.Drawing.Point(507, 304);
-            this.shareButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shareButton.Margin = new System.Windows.Forms.Padding(4);
             this.shareButton.Name = "shareButton";
             this.shareButton.Size = new System.Drawing.Size(139, 49);
             this.shareButton.TabIndex = 9;
