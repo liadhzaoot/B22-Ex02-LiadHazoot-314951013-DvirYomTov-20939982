@@ -36,8 +36,6 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("Could not load picture of zodiac sign.");
                 throw ex;
             }
-
-            userSignNameLabel.Text = Enum.GetName(typeof(ZodiacSignMatch.eZodiacSign), r_ZodiacMatch.Sign);
         }
 
         private void findButton_Click(object sender, EventArgs e)
@@ -52,10 +50,8 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("Could not load picture of zodiac sign.");
             }
 
-            matchSignNameLabel.Text = Enum.GetName(typeof(ZodiacSignMatch.eZodiacSign), bestMatch.Sign);
             findButton.Visible = false;
             pictureBox2.Visible = true;
-            matchSignNameLabel.Visible = true;
             fateQuotePicture.Visible = true;
             shareButton.Visible = true;
             MessageBox.Show("Congratulations! A match was found!");
@@ -70,7 +66,6 @@ namespace BasicFacebookFeatures
 
             findButton.Visible = true;
             pictureBox2.Visible = false;
-            matchSignNameLabel.Visible = false;
             fateQuotePicture.Visible = false;
             shareButton.Visible = false;
         }
