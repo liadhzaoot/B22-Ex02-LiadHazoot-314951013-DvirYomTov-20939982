@@ -15,6 +15,7 @@ namespace BasicFacebookFeatures
     {
         private readonly User r_User;
         private List<PictureBox> m_PictureBoxes;
+        private readonly int r_MaximumNumberOfPostsToShow = 15;
 
         internal delegate void BackButtonEventHandler();
 
@@ -42,41 +43,54 @@ namespace BasicFacebookFeatures
 
         private void showAlbums()
         {
-            for (int i = 0; i < r_User.Albums.Count; i++)
+            int counter = 0;
+            foreach (Album album in r_User.Albums)
             {
-                PostUC postUC = new PostUC();
-                if (r_User.Albums[i].Name != null)
+                if (counter == r_MaximumNumberOfPostsToShow)
                 {
-                    postUC.SetLableText(r_User.Albums[i].Name);
+                    break;
                 }
-                if (r_User.Albums[i].PictureAlbumURL != null)
+
+                PostUC postUC = new PostUC();
+                if (album.Name != null)
                 {
-                    postUC.SetImage(r_User.Albums[i].PictureAlbumURL);
+                    postUC.SetLableText(album.Name);
+                }
+                if (album.PictureAlbumURL != null)
+                {
+                    postUC.SetImage(album.PictureAlbumURL);
                 }
 
                 this.flowLayoutPanel1.Controls.Add(postUC);
+                counter++;
             }
 
             this.flowLayoutPanel1.AutoScroll = true;
         }
         private void createFeed()
         {
-            for (int i = 0; i < r_User.Posts.Count; i++)
+            int counter = 0;
+            foreach (Post post in r_User.Posts)
             {
+                if(counter == r_MaximumNumberOfPostsToShow)
+                {
+                    break;
+                }
+
                 PostUC postUC = new PostUC();
                 //postUC.SetLableVisibility(false);
-                if (r_User.Posts[i].Message != null)
+                if (post.Message != null)
                 {
                     //postUC.SetLableVisibility(true);
-                    postUC.SetLableText(r_User.Posts[i].Message);
+                    postUC.SetLableText(post.Message);
                 }
 
-                if (r_User.Posts[i].PictureURL != null)
+                if (post.PictureURL != null)
                 {
-                    postUC.SetImage(r_User.Posts[i].PictureURL);
+                    postUC.SetImage(post.PictureURL);
                 }
                 this.flowLayoutPanel1.Controls.Add(postUC);
-
+                counter++;
             }
 
             this.flowLayoutPanel1.AutoScroll = true;
