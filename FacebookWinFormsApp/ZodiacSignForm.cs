@@ -85,7 +85,6 @@ namespace BasicFacebookFeatures
             catch (Exception ex)
             {
                 MessageBox.Show("Could not share post.");
-                throw ex;
             }
         }
     }
