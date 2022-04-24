@@ -18,18 +18,20 @@ namespace BasicFacebookFeatures
 
         internal event BackButtonEventHandler BackButtonClicked;
 
-        private readonly ZodiacSignMatch r_ZodiacMatch;
+        //private readonly ZodiacSignMatch r_ZodiacMatch;
+
+        private ZodiacSignAdapter m_ZodiacMatch;
 
         private readonly User r_LoggedInUser;
 
         internal ZodiacSignForm(User i_LoggedInUser)
         {
             r_LoggedInUser = i_LoggedInUser;
-            r_ZodiacMatch = new ZodiacSignMatch(i_LoggedInUser.Birthday);
+            m_ZodiacMatch = new ZodiacSignAdapter(i_LoggedInUser.Birthday);
             InitializeComponent();
             try
             {
-                pictureBox1.LoadAsync(r_ZodiacMatch.PictureUrl);
+                pictureBox1.LoadAsync(m_ZodiacMatch.PictureUrl);
             }
             catch (Exception ex)
             {
@@ -40,10 +42,12 @@ namespace BasicFacebookFeatures
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            ZodiacSignMatch bestMatch = r_ZodiacMatch.BestMatchedWithSign;
+            m_ZodiacMatch.UpdateBestMatchedSign();
+
+            //ZodiacSignMatch bestMatch = m_ZodiacMatch.BestMatchedWithSign.;
             try
             {
-                pictureBox2.LoadAsync(bestMatch.PictureUrl);
+                pictureBox2.LoadAsync(m_ZodiacMatch.BestMatchedSign.PictureUrl);
             }
             catch (Exception)
             {
@@ -76,7 +80,7 @@ namespace BasicFacebookFeatures
             {
                 string textForPost = string.Format(
                     "Looking for {0} {1} {2} Anyone?",
-                    r_ZodiacMatch.MatchSignName,
+                    m_ZodiacMatch.BestMatchedSign.Name,
                     r_LoggedInUser.InterestedIn,
                     Environment.NewLine);
                 r_LoggedInUser.PostStatus(textForPost);
@@ -86,6 +90,11 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("Could not share post.");
             }
+        }
+
+        private void ZodiacSignForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

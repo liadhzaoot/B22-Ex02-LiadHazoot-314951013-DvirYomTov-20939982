@@ -161,6 +161,7 @@
             this.Name = "ZodiacSignForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "ZodiakSignForm";
+            this.Load += new System.EventHandler(this.ZodiacSignForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fateQuotePicture)).EndInit();
