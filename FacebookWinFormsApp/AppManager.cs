@@ -12,15 +12,43 @@ using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
-    public class AppManager
+    /// <summary>
+    /// Singelton Pattern
+    /// AppManger class is accessible to all.
+    /// There is only one instance of itself created.
+    /// It saves the logged in user and controls the pages show order.
+    /// </summary>
+    public class AppManager: IFacebookApplication
     {
+        private static readonly object sr_CreationalLockContext = new object();
+
         private readonly AppSettings r_AppSettings;
         private MainPageForm m_MainForm;
         private UserInformation m_UserInformation;
         private User m_LoggedInUser;
         private ZodiacSignForm m_ZodiacSignForm;
         private Form m_CurrentShownForm;
+        public static AppManager s_Instance = null;
 
+
+        public static AppManager GetInstance
+        {
+            get
+            {
+                if (s_Instance == null)
+                {
+                    lock (sr_CreationalLockContext)
+                    {
+                        if (s_Instance == null)
+                        {
+                            s_Instance = new AppManager();
+                        }
+                    }
+                }
+
+                return s_Instance;
+            }
+        }
         private Form CurrentShownForm
         {
             get { return m_CurrentShownForm; }
@@ -138,6 +166,16 @@ namespace BasicFacebookFeatures
         private void endApplication(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        public void Login()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Logout()
+        {
+            throw new NotImplementedException();
         }
     }
 }
