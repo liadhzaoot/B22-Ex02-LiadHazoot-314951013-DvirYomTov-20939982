@@ -47,6 +47,7 @@
             this.GetMatchesButton = new System.Windows.Forms.Button();
             this.ZodiakSignLink = new System.Windows.Forms.LinkLabel();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSelectedPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             this.comboBoxDecisionData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDecisionData.FormattingEnabled = true;
             this.comboBoxDecisionData.ItemHeight = 20;
-            this.comboBoxDecisionData.Location = new System.Drawing.Point(89, 383);
+            this.comboBoxDecisionData.Location = new System.Drawing.Point(13, 399);
             this.comboBoxDecisionData.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDecisionData.Name = "comboBoxDecisionData";
             this.comboBoxDecisionData.Size = new System.Drawing.Size(224, 324);
@@ -94,13 +95,13 @@
             this.SelectedOptionDataLable.AutoSize = true;
             this.SelectedOptionDataLable.BackColor = System.Drawing.Color.Transparent;
             this.SelectedOptionDataLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedOptionDataLable.Location = new System.Drawing.Point(84, 354);
+            this.SelectedOptionDataLable.Location = new System.Drawing.Point(13, 357);
             this.SelectedOptionDataLable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SelectedOptionDataLable.Name = "SelectedOptionDataLable";
             this.SelectedOptionDataLable.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.SelectedOptionDataLable.Size = new System.Drawing.Size(112, 25);
+            this.SelectedOptionDataLable.Size = new System.Drawing.Size(110, 25);
             this.SelectedOptionDataLable.TabIndex = 18;
-            this.SelectedOptionDataLable.Text = "Your data:";
+            this.SelectedOptionDataLable.Text = "Post data:";
             // 
             // postButton
             // 
@@ -150,11 +151,11 @@
             // 
             this.dataAnalystRichBox.BackColor = System.Drawing.Color.DarkSalmon;
             this.dataAnalystRichBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAnalystRichBox.Location = new System.Drawing.Point(359, 383);
+            this.dataAnalystRichBox.Location = new System.Drawing.Point(488, 399);
             this.dataAnalystRichBox.Margin = new System.Windows.Forms.Padding(4);
             this.dataAnalystRichBox.Name = "dataAnalystRichBox";
             this.dataAnalystRichBox.ReadOnly = true;
-            this.dataAnalystRichBox.Size = new System.Drawing.Size(403, 340);
+            this.dataAnalystRichBox.Size = new System.Drawing.Size(283, 324);
             this.dataAnalystRichBox.TabIndex = 24;
             this.dataAnalystRichBox.Text = "";
             this.dataAnalystRichBox.Visible = false;
@@ -292,12 +293,20 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(258, 399);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 324);
+            this.panel1.TabIndex = 36;
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1179, 814);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.ZodiakSignLink);
             this.Controls.Add(this.GetMatchesButton);
@@ -353,5 +362,6 @@
         private System.Windows.Forms.Button GetMatchesButton;
         private System.Windows.Forms.LinkLabel ZodiakSignLink;
         private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.Panel panel1;
     }
 }
