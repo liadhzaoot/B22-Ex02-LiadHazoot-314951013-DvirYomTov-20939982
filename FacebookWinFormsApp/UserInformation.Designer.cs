@@ -159,6 +159,7 @@
             this.MinimumSize = new System.Drawing.Size(1194, 851);
             this.Name = "UserInformation";
             this.Text = "UserInformation";
+            this.Load += new System.EventHandler(this.UserInformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

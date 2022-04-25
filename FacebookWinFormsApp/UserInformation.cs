@@ -13,18 +13,32 @@ namespace BasicFacebookFeatures
 {
     internal partial class UserInformation : Form
     {
-        private readonly User r_User;
+        private User m_LoggedInUser;
         private readonly int r_MaximumNumberOfPostsToShow = 15;
 
         internal delegate void BackButtonEventHandler();
 
         internal event BackButtonEventHandler BackButtonClicked;
 
-        internal UserInformation(User i_User)
+        internal UserInformation()
         {
             InitializeComponent();
-            r_User = i_User;
+            AppManager.GetInstance.LoginEvent += switchUser;
+            
         }
+
+        private void switchUser()
+        {
+            m_LoggedInUser = AppManager.GetInstance.LoggedInUser;
+            fetchUserInfo();
+            fetchPhotos();
+        }
+
+        //internal UserInformation(User i_User)
+        //{
+        //    InitializeComponent();
+        //    m_LoggedInUser = i_User;
+        //}
 
         internal void fetchOnLoad()
         {
@@ -33,16 +47,16 @@ namespace BasicFacebookFeatures
 
         private void fetchUserInfo()
         {
-            nameLabel.Text = r_User.Name;
-            birthdayLabel.Text = r_User.Birthday;
-            emailLabel.Text = r_User.Email;
-            profilePictureBox.LoadAsync(r_User.PictureLargeURL);
+            nameLabel.Text = m_LoggedInUser.Name;
+            birthdayLabel.Text = m_LoggedInUser.Birthday;
+            emailLabel.Text = m_LoggedInUser.Email;
+            profilePictureBox.LoadAsync(m_LoggedInUser.PictureLargeURL);
         }
 
         private void showAlbums()
         {
             int counter = 0;
-            foreach (Album album in r_User.Albums)
+            foreach (Album album in m_LoggedInUser.Albums)
             {
                 if (counter == r_MaximumNumberOfPostsToShow)
                 {
@@ -68,7 +82,7 @@ namespace BasicFacebookFeatures
         private void createFeed()
         {
             int counter = 0;
-            foreach (Post post in r_User.Posts)
+            foreach (Post post in m_LoggedInUser.Posts)
             {
                 if(counter == r_MaximumNumberOfPostsToShow)
                 {
@@ -96,7 +110,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPhotos()
         {
-            IEnumerator<Photo> photosEnumerator = r_User.PhotosTaggedIn.GetEnumerator();
+            IEnumerator<Photo> photosEnumerator = m_LoggedInUser.PhotosTaggedIn.GetEnumerator();
             for (int i = 0; i < r_MaximumNumberOfPostsToShow; i++)
             {
                 PostUC postUC = new PostUC();
@@ -117,10 +131,11 @@ namespace BasicFacebookFeatures
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            if (BackButtonClicked != null)
-            {
-                BackButtonClicked.Invoke();
-            }
+            AppManager.GetInstance.Back();
+            //if (BackButtonClicked != null)
+            //{
+            //    BackButtonClicked.Invoke();
+            //}
         }
 
         private void showFeedBtn_Click(object sender, EventArgs e)
@@ -144,6 +159,16 @@ namespace BasicFacebookFeatures
         {
             this.flowLayoutPanel1.Controls.Clear();
             fetchPhotos();
+        }
+
+        //private void backButton_Click(object sender, EventArgs e)
+        //{
+        //    AppManager.GetInstance.Back();
+        //}
+
+        private void UserInformation_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

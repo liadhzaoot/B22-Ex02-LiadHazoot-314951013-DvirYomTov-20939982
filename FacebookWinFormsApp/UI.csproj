@@ -117,6 +117,7 @@
     <Compile Include="UserInformation.Designer.cs">
       <DependentUpon>UserInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinFormAppPagesCreator.cs" />
     <Compile Include="ZodiacSignAdapter.cs" />
     <Compile Include="ZodiacSignForm.cs">
       <SubType>Form</SubType>
