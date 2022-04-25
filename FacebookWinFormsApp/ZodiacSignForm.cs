@@ -22,13 +22,18 @@ namespace BasicFacebookFeatures
 
         private ZodiacSignAdapter m_ZodiacMatch;
 
-        private readonly User r_LoggedInUser;
+        private User m_LoggedInUser;
 
-        internal ZodiacSignForm(User i_LoggedInUser)
+        internal ZodiacSignForm()
         {
-            r_LoggedInUser = i_LoggedInUser;
-            m_ZodiacMatch = new ZodiacSignAdapter(i_LoggedInUser.Birthday);
             InitializeComponent();
+            AppManager.GetInstance.LoginEvent += switchUser;
+        }
+
+        private void switchUser()
+        {
+            m_LoggedInUser = AppManager.GetInstance.LoggedInUser;
+            m_ZodiacMatch = new ZodiacSignAdapter(m_LoggedInUser.Birthday);
             try
             {
                 pictureBox1.LoadAsync(m_ZodiacMatch.PictureUrl);
@@ -38,7 +43,25 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("Could not load picture of zodiac sign.");
                 throw ex;
             }
+
         }
+
+
+        //internal ZodiacSignForm(User i_LoggedInUser)
+        //{
+        //    r_LoggedInUser = i_LoggedInUser;
+        //    m_ZodiacMatch = new ZodiacSignAdapter(i_LoggedInUser.Birthday);
+        //    InitializeComponent();
+        //    try
+        //    {
+        //        pictureBox1.LoadAsync(m_ZodiacMatch.PictureUrl);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Could not load picture of zodiac sign.");
+        //        throw ex;
+        //    }
+        //}
 
         private void findButton_Click(object sender, EventArgs e)
         {
@@ -63,10 +86,11 @@ namespace BasicFacebookFeatures
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
-            if (BackButtonClicked != null)
-            {
-                BackButtonClicked.Invoke();
-            }
+            //if (BackButtonClicked != null)
+            //{
+            //    BackButtonClicked.Invoke();
+            //}
+            AppManager.GetInstance.Back();
 
             findButton.Visible = true;
             pictureBox2.Visible = false;
@@ -81,9 +105,9 @@ namespace BasicFacebookFeatures
                 string textForPost = string.Format(
                     "Looking for {0} {1} {2} Anyone?",
                     m_ZodiacMatch.BestMatchedSign.Name,
-                    r_LoggedInUser.InterestedIn,
+                    m_LoggedInUser.InterestedIn,
                     Environment.NewLine);
-                r_LoggedInUser.PostStatus(textForPost);
+                m_LoggedInUser.PostStatus(textForPost);
                 MessageBox.Show(string.Format("Status Posted! {0}{1}", Environment.NewLine, textForPost));
             }
             catch (Exception ex)

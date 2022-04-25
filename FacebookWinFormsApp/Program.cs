@@ -11,8 +11,10 @@ namespace BasicFacebookFeatures
         [STAThread]
         static void Main()
         {
-            AppManager windowsApplication = new  AppManager ();
+            AppManager windowsApplication = AppManager.GetInstance;
+            windowsApplication.Factory = new WinFormAppPagesCreator();
             windowsApplication.Run();
+
         }
     }
 }
