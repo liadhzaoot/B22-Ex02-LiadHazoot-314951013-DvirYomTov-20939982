@@ -46,11 +46,27 @@ namespace BasicFacebookFeatures
 
         private void switchUser()
         {
-            //disableButtons();
+            disableButtons();
             m_LoggedInUser = AppManager.GetInstance.LoggedInUser;
             profilePictureBox.LoadAsync(m_LoggedInUser.PictureLargeURL);
             fullNameUser.Text = m_LoggedInUser.Name;
-            //updateInfo();
+            updateInfo();
+        }
+
+        private void disableButtons()
+        {
+            showFriendsButton.Enabled = false;
+            showFriendsButton.Text = "Loading Friends";
+            showFriendsButton.BackColor = System.Drawing.Color.Gray;
+            getMatchesButton.Text = "Show Matches";
+            getMatchesButton.Enabled = false;
+            getMatchesButton.BackColor = System.Drawing.Color.Gray;
+            showPostsButton.Enabled = false;
+            showPostsButton.Text = "Loading Posts";
+            showPostsButton.BackColor = System.Drawing.Color.Gray;
+            showEventsButton.Enabled = false;
+            showEventsButton.Text = "Loading Events";
+            showEventsButton.BackColor = System.Drawing.Color.Gray;
         }
 
         private void loadEvents()
@@ -123,79 +139,37 @@ namespace BasicFacebookFeatures
 
         private void fetchEvents()
         {
-            int counter = 0;
-            foreach (Event eventFSB in m_LoggedInUser.Events)
+            if (!eventsListBox.InvokeRequired)
             {
-                if (counter == r_MaximumNumberOfEventsToShow)
-                {
-                    break;
-                }
-                else
-                {
-                    comboBoxDecisionData.Items.Add(eventFSB.Name);
-                }
-
-                counter++;
+                eventBindingSource.DataSource = m_Events;
             }
-
-            if (m_LoggedInUser.Events.Count == 0)
+            else
             {
-                MessageBox.Show("No events to retrieve!");
+                eventsListBox.Invoke(new Action(() => eventBindingSource.DataSource = m_Events));
             }
         }
 
         private void fetchPosts()
         {
-            int counter = 0;
-            foreach (Post post in m_LoggedInUser.Posts)
+            if (!postsListBox.InvokeRequired)
             {
-                if (counter == r_MaximumNumberOfPostsToShow)
-                {
-                    break;
-                }
-                else if (post.Message != null)
-                {
-                    comboBoxDecisionData.Items.Add(post.Message);
-                }
-                else if (post.Caption != null)
-                {
-                    comboBoxDecisionData.Items.Add(post.Caption);
-                }
-                else
-                {
-                    comboBoxDecisionData.Items.Add(string.Format("[{0}]", post.Type));
-                }
-
-                counter++;
+                postBindingSource.DataSource = m_Posts;
             }
-
-            if (m_LoggedInUser.Posts.Count == 0)
+            else
             {
-                MessageBox.Show("No posts to retrieve!");
+                postsListBox.Invoke(new Action(() => postBindingSource.DataSource = m_Posts));
             }
         }
 
         private void fetchFriends()
         {
-            comboBoxDecisionData.Items.Clear();
-            comboBoxDecisionData.DisplayMember = "Name";
-            int counter = 0;
-
-            foreach (User friend in m_LoggedInUser.Friends)
+            if (!friendsListBox.InvokeRequired)
             {
-                if (counter == r_MaximumNumberOfFriendsToShow)
-                {
-                    break;
-                }
-
-                comboBoxDecisionData.Items.Add(friend);
-                friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
-                counter++;
+                userBindingSource.DataSource = m_Friends;
             }
-
-            if (m_LoggedInUser.Friends.Count == 0)
+            else
             {
-                MessageBox.Show("No Friends to retrieve!");
+                friendsListBox.Invoke(new Action(() => userBindingSource.DataSource = m_Friends));
             }
         }
 
@@ -209,93 +183,57 @@ namespace BasicFacebookFeatures
             catch (Exception ex)
             {
                 MessageBox.Show("Could not post.");
+                throw ex;
             }
         }
 
         private void ShowEventsButton_Click(object sender, EventArgs e)
         {
-            cleanDataSelcetedComboBoxAndAnalyst();
-            DataAnalyst.ButtonClicked = DataAnalyst.LastButtonClicked.Events;
-            fetchEvents();
+            if (showEventsButton.Enabled)
+            {
+                fetchEvents();
+            }
         }
 
         private void ShowPostsButton_Click(object sender, EventArgs e)
         {
-            cleanDataSelcetedComboBoxAndAnalyst();
-            DataAnalyst.ButtonClicked = DataAnalyst.LastButtonClicked.Posts;
-            fetchPosts();
+            if (showPostsButton.Enabled)
+            {
+                fetchPosts();
+            }
         }
 
-        private void ShowFriendsButton_Click(object sender, EventArgs e)
+        private void showFriendsButton_Click(object sender, EventArgs e)
         {
-            cleanDataSelcetedComboBoxAndAnalyst();
-            DataAnalyst.ButtonClicked = DataAnalyst.LastButtonClicked.Friends;
-            fetchFriends();
+            if (showFriendsButton.Enabled)
+            {
+                fetchFriends();
+                friendsListBox.DisplayMember = "Name";
+            }
         }
 
         private void GetMatchesButton_Click(object sender, EventArgs e)
         {
-            cleanDataSelcetedComboBoxAndAnalyst();
-            DataAnalyst.ButtonClicked = DataAnalyst.LastButtonClicked.Friends;
-
-            List<User> friendsToMatchWith = AvailableFriends.GetAvailabeFriends(m_LoggedInUser);
+            m_Matches = AvailableFriends.GetAvailabeFriends(m_LoggedInUser);
             int counter = 0;
-            foreach (User friend in friendsToMatchWith)
+            foreach (User friend in m_Matches)
             {
                 if (counter == r_MaximumNumberOfFriendsToShow)
                 {
                     break;
                 }
 
-                comboBoxDecisionData.Items.Add(friend);
+                matchesComboBox1.Items.Add(friend);
                 friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                 counter++;
             }
 
-            if (friendsToMatchWith.Count == 0)
+            if (m_Matches.Count == 0)
             {
                 MessageBox.Show("Could not find anyone for you.");
             }
         }
 
-        private void cleanDataSelcetedComboBoxAndAnalyst()
-        {
-            comboBoxDecisionData.Items.Clear();
-            dataAnalystRichBox.Text = string.Empty;
-            dataAnalystRichBox.Visible = false;
-
-            resetDataAnalyst();
-        }
-
-        private void comboBoxDecisionData_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            resetDataAnalyst();
-            showAnalayzeResults(DataAnalyst.AnalyzeData(comboBoxDecisionData.SelectedIndex, m_LoggedInUser));
-        }
-
-        private void resetDataAnalyst()
-        {
-            dataAnalystRichBox.Clear();
-            dataAnalystRichBox.Visible = false;
-            
-            dataSelectedPictureBox.Image = null;
-            dataSelectedPictureBox.Visible = false;
-        }
-
-        private void showAnalayzeResults(List<string> i_Data)
-        {
-            string imageUrl = i_Data[1];
-            string dataAnalyzed = i_Data[0];
-            dataAnalystRichBox.Visible = true;
-
-            if (string.IsNullOrEmpty(imageUrl) == false)
-            {
-                dataSelectedPictureBox.Visible = true;
-                dataSelectedPictureBox.LoadAsync(imageUrl);
-            }
-
-            dataAnalystRichBox.Text = dataAnalyzed;
-        }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -344,5 +282,7 @@ namespace BasicFacebookFeatures
         {
 
         }
+
+     
     }
 }
