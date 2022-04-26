@@ -15,9 +15,7 @@ namespace BasicFacebookFeatures
     {
         private User m_LoggedInUser;
         private readonly int r_MaximumNumberOfPostsToShow = 15;
-
         internal delegate void BackButtonEventHandler();
-
         internal event BackButtonEventHandler BackButtonClicked;
 
         internal UserInformation()
@@ -32,17 +30,6 @@ namespace BasicFacebookFeatures
             m_LoggedInUser = AppManager.GetInstance.LoggedInUser;
             fetchUserInfo();
             fetchPhotos();
-        }
-
-        //internal UserInformation(User i_User)
-        //{
-        //    InitializeComponent();
-        //    m_LoggedInUser = i_User;
-        //}
-
-        internal void fetchOnLoad()
-        {
-            fetchUserInfo();
         }
 
         private void fetchUserInfo()
@@ -79,6 +66,7 @@ namespace BasicFacebookFeatures
 
             this.flowLayoutPanel1.AutoScroll = true;
         }
+
         private void createFeed()
         {
             int counter = 0;
@@ -101,6 +89,7 @@ namespace BasicFacebookFeatures
                 {
                     postUC.SetImage(post.PictureURL);
                 }
+
                 this.flowLayoutPanel1.Controls.Add(postUC);
                 counter++;
             }
@@ -119,23 +108,22 @@ namespace BasicFacebookFeatures
                 {
                     postUC.SetImage(photosEnumerator.Current.PictureNormalURL);
                 }
+
                 else
                 {
                     break;
                 }
+
                 this.flowLayoutPanel1.Controls.Add(postUC);
                 this.flowLayoutPanel1.AutoScroll = true;
 
             }
+
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             AppManager.GetInstance.Back();
-            //if (BackButtonClicked != null)
-            //{
-            //    BackButtonClicked.Invoke();
-            //}
         }
 
         private void showFeedBtn_Click(object sender, EventArgs e)
@@ -160,11 +148,6 @@ namespace BasicFacebookFeatures
             this.flowLayoutPanel1.Controls.Clear();
             fetchPhotos();
         }
-
-        //private void backButton_Click(object sender, EventArgs e)
-        //{
-        //    AppManager.GetInstance.Back();
-        //}
 
         private void UserInformation_Load(object sender, EventArgs e)
         {

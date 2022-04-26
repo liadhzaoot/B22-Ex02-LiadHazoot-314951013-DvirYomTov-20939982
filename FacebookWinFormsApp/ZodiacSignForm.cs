@@ -18,8 +18,6 @@ namespace BasicFacebookFeatures
 
         internal event BackButtonEventHandler BackButtonClicked;
 
-        //private readonly ZodiacSignMatch r_ZodiacMatch;
-
         private ZodiacSignAdapter m_ZodiacMatch;
 
         private User m_LoggedInUser;
@@ -46,28 +44,10 @@ namespace BasicFacebookFeatures
 
         }
 
-
-        //internal ZodiacSignForm(User i_LoggedInUser)
-        //{
-        //    r_LoggedInUser = i_LoggedInUser;
-        //    m_ZodiacMatch = new ZodiacSignAdapter(i_LoggedInUser.Birthday);
-        //    InitializeComponent();
-        //    try
-        //    {
-        //        pictureBox1.LoadAsync(m_ZodiacMatch.PictureUrl);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Could not load picture of zodiac sign.");
-        //        throw ex;
-        //    }
-        //}
-
         private void findButton_Click(object sender, EventArgs e)
         {
             m_ZodiacMatch.UpdateBestMatchedSign();
 
-            //ZodiacSignMatch bestMatch = m_ZodiacMatch.BestMatchedWithSign.;
             try
             {
                 pictureBox2.LoadAsync(m_ZodiacMatch.BestMatchedSign.PictureUrl);
@@ -86,12 +66,7 @@ namespace BasicFacebookFeatures
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
-            //if (BackButtonClicked != null)
-            //{
-            //    BackButtonClicked.Invoke();
-            //}
             AppManager.GetInstance.Back();
-
             findButton.Visible = true;
             pictureBox2.Visible = false;
             fateQuotePicture.Visible = false;
