@@ -667,6 +667,7 @@
             this.Name = "MainPageForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "MainPageForm";
+            this.Load += new System.EventHandler(this.MainPageForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);

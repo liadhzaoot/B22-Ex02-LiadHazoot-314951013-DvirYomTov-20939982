@@ -22,6 +22,7 @@ namespace BasicFacebookFeatures
         private readonly int r_MaximumNumberOfFriendsToShow = 10;
         private readonly int r_MaximumNumberOfPostsToShow = 15;
         private readonly int r_MaximumNumberOfEventsToShow = 15;
+        private readonly int r_ScoreToDetermineMatch = 2;
 
         internal delegate void LinkEventHandler();
 
@@ -214,9 +215,11 @@ namespace BasicFacebookFeatures
 
         private void GetMatchesButton_Click(object sender, EventArgs e)
         {
-            m_Matches = AvailableFriends.GetAvailabeFriends(m_LoggedInUser);
+            LinkedList<ChainOfHandlers.eFilters> listOfOptionalFilters = createListOfOptionalFilters();
+            FriendsToMatch friendsThatCanBeMatched = new FriendsToMatch(m_LoggedInUser, m_Friends, listOfOptionalFilters, r_ScoreToDetermineMatch);
             int counter = 0;
-            foreach (User friend in m_Matches)
+
+            foreach (User friend in friendsThatCanBeMatched)
             {
                 if (counter == r_MaximumNumberOfFriendsToShow)
                 {
@@ -224,16 +227,63 @@ namespace BasicFacebookFeatures
                 }
 
                 matchesComboBox1.Items.Add(friend);
-                friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                 counter++;
             }
 
-            if (m_Matches.Count == 0)
+            if (counter == 0)
             {
                 MessageBox.Show("Could not find anyone for you.");
             }
-        }
+            // ------------------------ old !! ------------------------------
+            //m_Matches = AvailableFriends.GetAvailabeFriends(m_LoggedInUser);
+            //int counter = 0;
+            //foreach (User friend in m_Matches)
+            //{
+            //    if (counter == r_MaximumNumberOfFriendsToShow)
+            //    {
+            //        break;
+            //    }
 
+            //    matchesComboBox1.Items.Add(friend);
+            //    friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
+            //    counter++;
+            //}
+
+            //if (m_Matches.Count == 0)
+            //{
+            //    MessageBox.Show("Could not find anyone for you.");
+            //}
+        }
+        private LinkedList<ChainOfHandlers.eFilters> createListOfOptionalFilters()
+        {
+            LinkedList<ChainOfHandlers.eFilters> listOfFiltersENums = new LinkedList<ChainOfHandlers.eFilters>();
+            if (educatedCheckBox.Checked == true)
+            {
+                listOfFiltersENums.AddLast(ChainOfHandlers.eFilters.Educated);
+            }
+
+            if (workExpCheckBox.Checked == true)
+            {
+                listOfFiltersENums.AddLast(ChainOfHandlers.eFilters.WorkExperience);
+            }
+
+            if (popularCheckBox.Checked == true)
+            {
+                listOfFiltersENums.AddLast(ChainOfHandlers.eFilters.Popular);
+            }
+
+            if (sameRegionCheckBox.Checked == true)
+            {
+                listOfFiltersENums.AddLast(ChainOfHandlers.eFilters.SameReligion);
+            }
+
+            if (sameTownCheckBox.Checked == true)
+            {
+                listOfFiltersENums.AddLast(ChainOfHandlers.eFilters.SameTown);
+            }
+
+            return listOfFiltersENums;
+        }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -283,6 +333,9 @@ namespace BasicFacebookFeatures
 
         }
 
-     
+        private void MainPageForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

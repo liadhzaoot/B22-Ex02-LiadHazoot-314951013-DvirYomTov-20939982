@@ -55,9 +55,23 @@
     <Compile Include="AppPagesFactory.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="AvailableFriends.cs" />
+    <Compile Include="ChainOfHandlers.cs" />
+    <Compile Include="CriticalFilter.cs" />
+    <Compile Include="EducatedFriendsFilterStrategy.cs" />
+    <Compile Include="FriendFilter.cs" />
+    <Compile Include="FriendsToMatch.cs" />
     <Compile Include="IFacebookApplication.cs" />
+    <Compile Include="IFilterStrategy.cs" />
+    <Compile Include="IntrestedInEachOtherFilterStrategy.cs" />
+    <Compile Include="OptionalFilter.cs" />
+    <Compile Include="PopularFriendsFilterStrategy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="SameReligionFilterStrategy.cs" />
+    <Compile Include="SameTownFilterStrategy.cs" />
+    <Compile Include="SingleFilterStrategy.cs" />
+    <Compile Include="WorkExpFriendsFilterStrategy.cs" />
     <Compile Include="ZodiacSign.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
