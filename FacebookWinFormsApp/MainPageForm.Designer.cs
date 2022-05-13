@@ -79,6 +79,12 @@
             this.nameLabel3 = new System.Windows.Forms.Label();
             this.pictureLargeURLPictureBox = new System.Windows.Forms.PictureBox();
             this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.educatedCheckBox = new System.Windows.Forms.CheckBox();
+            this.workExpCheckBox = new System.Windows.Forms.CheckBox();
+            this.popularCheckBox = new System.Windows.Forms.CheckBox();
+            this.sameRegionCheckBox = new System.Windows.Forms.CheckBox();
+            this.sameTownCheckBox = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
@@ -304,7 +310,7 @@
             this.getMatchesButton.BackColor = System.Drawing.Color.Gray;
             this.getMatchesButton.Enabled = false;
             this.getMatchesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getMatchesButton.Location = new System.Drawing.Point(860, 277);
+            this.getMatchesButton.Location = new System.Drawing.Point(862, 277);
             this.getMatchesButton.Margin = new System.Windows.Forms.Padding(4);
             this.getMatchesButton.Name = "getMatchesButton";
             this.getMatchesButton.Size = new System.Drawing.Size(279, 53);
@@ -532,7 +538,7 @@
             this.friendsListBox.DataSource = this.userBindingSource;
             this.friendsListBox.FormattingEnabled = true;
             this.friendsListBox.ItemHeight = 16;
-            this.friendsListBox.Location = new System.Drawing.Point(877, 384);
+            this.friendsListBox.Location = new System.Drawing.Point(879, 450);
             this.friendsListBox.Margin = new System.Windows.Forms.Padding(4);
             this.friendsListBox.Name = "friendsListBox";
             this.friendsListBox.Size = new System.Drawing.Size(265, 132);
@@ -545,7 +551,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(900, 364);
+            this.label3.Location = new System.Drawing.Point(902, 430);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 16);
@@ -555,7 +561,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(900, 618);
+            this.label4.Location = new System.Drawing.Point(902, 684);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 16);
@@ -565,7 +571,7 @@
             // matchesComboBox1
             // 
             this.matchesComboBox1.FormattingEnabled = true;
-            this.matchesComboBox1.Location = new System.Drawing.Point(877, 639);
+            this.matchesComboBox1.Location = new System.Drawing.Point(879, 705);
             this.matchesComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.matchesComboBox1.Name = "matchesComboBox1";
             this.matchesComboBox1.Size = new System.Drawing.Size(265, 24);
@@ -578,7 +584,7 @@
             this.panel3.Controls.Add(this.emailLabel1);
             this.panel3.Controls.Add(this.nameLabel3);
             this.panel3.Controls.Add(this.pictureLargeURLPictureBox);
-            this.panel3.Location = new System.Drawing.Point(877, 526);
+            this.panel3.Location = new System.Drawing.Point(879, 592);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 89);
@@ -629,6 +635,85 @@
             this.albumsBindingSource.DataMember = "Albums";
             this.albumsBindingSource.DataSource = this.userBindingSource;
             // 
+            // educatedCheckBox
+            // 
+            this.educatedCheckBox.AutoSize = true;
+            this.educatedCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.educatedCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.educatedCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.educatedCheckBox.Location = new System.Drawing.Point(886, 355);
+            this.educatedCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.educatedCheckBox.Name = "educatedCheckBox";
+            this.educatedCheckBox.Size = new System.Drawing.Size(98, 21);
+            this.educatedCheckBox.TabIndex = 50;
+            this.educatedCheckBox.Text = "Educated";
+            this.educatedCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // workExpCheckBox
+            // 
+            this.workExpCheckBox.AutoSize = true;
+            this.workExpCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.workExpCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.workExpCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.workExpCheckBox.Location = new System.Drawing.Point(886, 405);
+            this.workExpCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.workExpCheckBox.Name = "workExpCheckBox";
+            this.workExpCheckBox.Size = new System.Drawing.Size(103, 21);
+            this.workExpCheckBox.TabIndex = 51;
+            this.workExpCheckBox.Text = "Work Exp.";
+            this.workExpCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // popularCheckBox
+            // 
+            this.popularCheckBox.AutoSize = true;
+            this.popularCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.popularCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.popularCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.popularCheckBox.Location = new System.Drawing.Point(886, 380);
+            this.popularCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.popularCheckBox.Name = "popularCheckBox";
+            this.popularCheckBox.Size = new System.Drawing.Size(86, 21);
+            this.popularCheckBox.TabIndex = 52;
+            this.popularCheckBox.Text = "Popular";
+            this.popularCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // sameRegionCheckBox
+            // 
+            this.sameRegionCheckBox.AutoSize = true;
+            this.sameRegionCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.sameRegionCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sameRegionCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.sameRegionCheckBox.Location = new System.Drawing.Point(986, 380);
+            this.sameRegionCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.sameRegionCheckBox.Name = "sameRegionCheckBox";
+            this.sameRegionCheckBox.Size = new System.Drawing.Size(126, 21);
+            this.sameRegionCheckBox.TabIndex = 53;
+            this.sameRegionCheckBox.Text = "Same Region";
+            this.sameRegionCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // sameTownCheckBox
+            // 
+            this.sameTownCheckBox.AutoSize = true;
+            this.sameTownCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.sameTownCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sameTownCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.sameTownCheckBox.Location = new System.Drawing.Point(986, 355);
+            this.sameTownCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.sameTownCheckBox.Name = "sameTownCheckBox";
+            this.sameTownCheckBox.Size = new System.Drawing.Size(113, 21);
+            this.sameTownCheckBox.TabIndex = 54;
+            this.sameTownCheckBox.Text = "Same Town";
+            this.sameTownCheckBox.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(886, 336);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(137, 16);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Parameters for match:";
+            // 
             // MainPageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -659,6 +744,12 @@
             this.Controls.Add(this.postLabel);
             this.Controls.Add(this.fullNameUser);
             this.Controls.Add(this.profilePictureBox);
+            this.Controls.Add(this.sameTownCheckBox);
+            this.Controls.Add(this.sameRegionCheckBox);
+            this.Controls.Add(this.popularCheckBox);
+            this.Controls.Add(this.workExpCheckBox);
+            this.Controls.Add(this.educatedCheckBox);
+            this.Controls.Add(this.label5);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -738,5 +829,11 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label privacyLabel;
         private System.Windows.Forms.Label startTimeLabel;
+        private System.Windows.Forms.CheckBox educatedCheckBox;
+        private System.Windows.Forms.CheckBox workExpCheckBox;
+        private System.Windows.Forms.CheckBox popularCheckBox;
+        private System.Windows.Forms.CheckBox sameRegionCheckBox;
+        private System.Windows.Forms.CheckBox sameTownCheckBox;
+        private System.Windows.Forms.Label label5;
     }
 }
