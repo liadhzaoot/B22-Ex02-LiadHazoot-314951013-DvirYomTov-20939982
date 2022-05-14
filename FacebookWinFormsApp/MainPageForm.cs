@@ -119,6 +119,8 @@ namespace BasicFacebookFeatures
         {
             m_Friends = m_LoggedInUser.Friends.Take(r_MaximumNumberOfFriendsToShow).ToList();
             sendButtonForChange(showFriendsButton, "Show Friends", "No Friends", System.Drawing.Color.Green, m_Friends);
+            sendButtonForChange(getMatchesButton, "Show Matches", "Show Matches", System.Drawing.Color.Purple, m_Friends);
+
         }
 
         private void updateInfo()
